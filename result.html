@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Result</title>
+    <link rel="stylesheet" href="rs.css">
+</head>
+<body>
+    <div class="result-container">
+        <div class="result-card">
+            <h1 class="result-title">Quiz Result</h1>
+            <p id="result" class="result-text"></p>
+            <button class="retry-button" onclick="goBack()">Re test</button>
+        </div>
+    </div>
+
+    <script>
+        // Get query parameters from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const score = urlParams.get('score');
+        const total = urlParams.get('total');
+
+        // Display the result
+        document.getElementById('result').innerText = `You scored ${score*4} out of ${total*4}`;
+
+        // Go back to the quiz page
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
